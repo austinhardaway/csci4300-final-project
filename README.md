@@ -31,6 +31,8 @@
   
   Licensing request: All code produced in accordance with this proposal will be sole ownership of the $3!N0RZZ!! team members. This code will be licensed under the Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA).
 
+## Functional Requirements 
+
 - (30 points) SQL Database
  	- (15 points) User & Review Tables
 	    - User table for storing usernames & hashed passwords & uid
@@ -44,10 +46,10 @@
 	    - Reviews table for storing user reviews of bars
 	      ``` javascript
 	      {
-	      review: review,
-	      bar_id: bar_id,
-	      user: username,
-	      rating: rating //1-5 star system
+	      review: string,
+	      bar_id: long,
+	      user: string,
+	      rating: int //1-5 star system
 	      }  
 	      ```
  - (3 points) User passwords will be hashed before being pushed to database
@@ -69,6 +71,6 @@
 	- (2.5 points) Users can login
 	- (2.5 points) Users can logout
 -  (10 points) Django 
-	- (10 points) We will use Django
+	- (10 points) The use of Django is required for this project
 
 
