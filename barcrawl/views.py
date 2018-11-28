@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 # Create your views here.
 
 
-def index(reauest):
-    return HttpResponse("Hello bars!")
+def index(request):
+    return render(request, 'barcrawl/index.html', {})
