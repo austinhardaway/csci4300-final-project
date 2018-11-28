@@ -61,14 +61,14 @@
 	- (10 points) Responsive for mobile users
 - (10 points) User bar crawl preferences
 	- (5 points) Users can filter by:
-	- Price 
-	- Distance
+		- Price 
+		- Distance
 	- (5 points) Users can specify the number of bars in a crawl
 -  (10 points) User Registration and Login/Logout
 	- (5 points) Users can register with a username and password
 	- (2.5 points) Users can login
 	- (2.5 points) Users can logout
 -  (10 points) Django 
-- (10 points) We will use Django
+	- (10 points) We will use Django
 
 
