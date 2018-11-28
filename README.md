@@ -31,47 +31,25 @@
   
   Licensing request: All code produced in accordance with this proposal will be sole ownership of the $3!N0RZZ!! team members. This code will be licensed under the Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA).
 
-30 points) MySQL Database
-     - (15 points) User & Review Tables
-        - User table for storing usernames & hashed passwords & uid
-        ```
-        {
-            uid: uid
-            username : username,
-            password: password, //hashed with Django’s hashing algorithm 
-        }
-        - Reviews table for storing user reviews of bars
-        ```
-        {
-            review: review,
-bar_id: bar_id,
-user: username,
-rating: rating //1-5 star system
-}  
-(5 points) User passwords will be hashed before being pushed to database
-    - (10 points) schema.sql available for download on the site
-
-
-
 - (30 points) SQL Database
  	- (15 points) User & Review Tables
-    - User table for storing usernames & hashed passwords & uid
-      ``` javascript
-      {
-       uid: long
-       username : string,
-       password: string, //hashed with Django’s hashing algorithm 
-      }
-      ```
-    - Reviews table for storing user reviews of bars
-      ``` javascript
-      {
-      review: review,
-      bar_id: bar_id,
-      user: username,
-      rating: rating //1-5 star system
-      }  
-      ```
+	    - User table for storing usernames & hashed passwords & uid
+	      ``` javascript
+	      {
+	       uid: long
+	       username : string,
+	       password: string, //hashed with Django’s hashing algorithm 
+	      }
+	      ```
+	    - Reviews table for storing user reviews of bars
+	      ``` javascript
+	      {
+	      review: review,
+	      bar_id: bar_id,
+	      user: username,
+	      rating: rating //1-5 star system
+	      }  
+	      ```
  - (3 points) User passwords will be hashed before being pushed to database
 	- (2 points) schema.sql available for download on the site
 - (20 points) Use of XHR for Google Places and Map API
