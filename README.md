@@ -1,5 +1,24 @@
 # csci4300-final-project - 
 
+## Setup for your vm
+1. Add the following to your /etc/nginx/nginx.conf and restart the nginx service
+
+		location ^~ /barcrawlapp/ {
+				include uwsgi_params;
+				uwsgi_pass 127.0.0.1:4305;
+		}
+
+		location ^~ /barcrawlapp/static {
+				alias /home/student/projects/csci4300/csci4300-final-project/static/;
+		}
+
+1. Add your ip to allowed hosts in barcrawlapp/settings
+2. Create a database and user in MySql
+	- Look at barcrawlapp/settings.py to see the user and db information
+3. Run ```python manage.py migrate``` to test db setup
+4. Run ./start.sh to run the serrver and check http://{your_ip}/barcrawlapp/ 
+5. Pray the aboove worked and commit the allowed hosts change to the settings (iff you followed the set db setup)
+
 ## Team Name
  - $3!N0RZZ!!
  
