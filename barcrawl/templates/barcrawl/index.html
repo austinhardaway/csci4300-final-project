@@ -1,5 +1,22 @@
 {% load static %}
 
-<link rel="stylesheet"  type="text/css" href="{% static 'index.css' %}" />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'barcrawl/css/index.css' %}"
+/>
 
-<h1>Hello Bars</h1>
+<h1>Bar Crawl Demo</h1>
+<form action="">
+  <label for="radius">Max distance in m:</label>
+  <input name="radius" id="rad" type="number" />
+  <label for="numBars">Number of bars in crawl:</label>
+  <input type="number" name="numBars" id="numbars" />
+  <label for="price">Max Price:</label>
+  <input type="number" id="price" name="price" />
+  <button type="button" id="submit">Submit</button>
+</form>
+<div id="map"></div>
+<div id="output"></div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXkrApyv2tJPktwkq_nVgVxs8S9O_Dfso&libraries=places"></script>
+<script src="{% static 'barcrawl/js/index.js' %}"></script>
