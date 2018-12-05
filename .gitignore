@@ -105,3 +105,4 @@ venv.bak/
 .vscode
 lib64
 bin/
+pyvenv.cfg
