@@ -1,3 +1,4 @@
+deactivate
 rm -rf bin include lib lib64 pyvenv.cfg
 python3 -m venv .
 source bin/activate
