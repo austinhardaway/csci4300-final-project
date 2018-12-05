@@ -1,4 +1,79 @@
 html {
-  background: blue;
+  background: black;
   color: aliceblue;
+}
+
+body {
+    font-family: "Alegreya Sans SC";
+}
+
+#headerButtonL {
+    font-size: 20px;
+    background: none;
+    border: none;
+    font-family: "Alegreya Sans SC";
+    color: aliceblue;
+    margin: 20;
+}
+
+#headerButtonR {
+    font-size: 20px;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 30;
+    right: 20;
+    font-family: "Alegreya Sans SC";
+    color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+p {
+    margin: 20px;
+    font-size: 25px;
+}
+
+input {
+    padding: 4px;
+    font-size: 20px;
+    font-family: "Alegreya Sans SC";
+    background: black;
+    color: aliceblue;
+    border: 5px solid aliceblue;
+}
+
+label {
+    font-size: 20px;
+}
+
+select {
+    margin-left: 5px;
+    width: 100px;
+    height: 33px;
+    font-size: 20px;
+    font-family: "Alegreya Sans SC";
+    align: center;
+    background: black;
+    border: 0;
+    color: aliceblue;
+    outline: 5px solid aliceblue;
+}
+
+select option {
+    font-size: 20px;
+    font-family: "Alegreya Sans SC";
+    align: center;
+}
+
+#submit {
+    font-size: 30px;
+    background: aliceblue;
+    width: 30%;
+    font-family: "Alegreya Sans SC";
+    color: black;
+    border: 5px solid aliceblue;
 }

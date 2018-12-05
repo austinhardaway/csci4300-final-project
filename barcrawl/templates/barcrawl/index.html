@@ -1,22 +1,35 @@
 {% load static %}
-
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'barcrawl/css/index.css' %}"
-/>
-
-<h1>Bar Crawl Demo</h1>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'barcrawl/css/index.css' %}"/>
+<link href="https://fonts.googleapis.com/css?family=Alegreya Sans SC" rel="stylesheet">
+</head>
+<body>
+<button id="headerButtonL">Schema</button>
+<h1>BarCrawl App</h1>
+<button id="headerButtonR">Logout</button>
+<center>
+<p>Based on your current location, we will customize a bar crawl for you. Choose your preferences below:</p>
 <form action="">
-  <label for="radius">Max distance in m:</label>
-  <input name="radius" id="rad" type="number" />
-  <label for="numBars">Number of bars in crawl:</label>
-  <input type="number" name="numBars" id="numbars" />
-  <label for="price">Max Price:</label>
-  <input type="number" id="price" name="price" />
-  <button type="button" id="submit">Submit</button>
+  <label for="radius">Max distance from you (miles):</label>
+  <input name="radius" id="rad" type="text" />
+  </br>
+  </br>
+  <label for="numBars">Number of bars in crawl: </label>
+  <input type="text" name="numBars" id="numBars" />
+  </br>
+  </br>
+  <label for="price">Max price: </label>
+  <select id="price" name="price">
+    <optgroup>
+      <option value="$">$</option>
+      <option value="$$">$$</option>
+      <option value="$$$">$$$</option>
+      <option value="$$$$">$$$$</option>
+    </optgroup>
+  </select>
+  </br>
+  </br>
+  <button type="button" id="submit">GO</button>
 </form>
-<div id="map"></div>
-<div id="output"></div>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXkrApyv2tJPktwkq_nVgVxs8S9O_Dfso&libraries=places"></script>
-<script src="{% static 'barcrawl/js/index.js' %}"></script>
+</center>
+</body>
