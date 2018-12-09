@@ -64,6 +64,4 @@ document.getElementById("submit").addEventListener("click", e => {
   initMap(input);
 });
 
-// fetch()
-
 //  AIzaSyAXkrApyv2tJPktwkq_nVgVxs8S9O_Dfso  <- Api key

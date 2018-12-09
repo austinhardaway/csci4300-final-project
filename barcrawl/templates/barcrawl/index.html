@@ -9,27 +9,26 @@
 <button id="headerButtonR">Logout</button>
 <center>
 <p>Based on your current location, we will customize a bar crawl for you. Choose your preferences below:</p>
-<form action="">
+<form action="bar" method="POST"> {% csrf_token %}
   <label for="radius">Max distance from you (miles):</label>
-  <input name="radius" id="rad" type="text" />
+  <input name="radius" id="rad" type="number" />
   </br>
   </br>
   <label for="numBars">Number of bars in crawl: </label>
-  <input type="text" name="numBars" id="numBars" />
+  <input type="number" name="numBars" id="numBars" />
   </br>
   </br>
   <label for="price">Max price: </label>
   <select id="price" name="price">
-    <optgroup>
-      <option value="$">$</option>
-      <option value="$$">$$</option>
-      <option value="$$$">$$$</option>
-      <option value="$$$$">$$$$</option>
-    </optgroup>
+      <option value="1">$</option>
+      <option value="2">$$</option>
+      <option value="3">$$$</option>
+      <option value="4">$$$$</option>
+      <option value="5">$$$$$</option>
   </select>
   </br>
   </br>
-  <button type="button" id="submit">GO</button>
+  <button type="submit" id="submit">GO</button>
 </form>
 </center>
 </body>

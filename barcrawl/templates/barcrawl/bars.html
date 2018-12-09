@@ -1,0 +1,35 @@
+{% load static %}
+
+<head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'barcrawl/css/bars.css' %}"
+  />
+</head>
+<script>
+  //makes the post data available to bars.js
+  // also my linter hates this but it works
+  const input = {
+    radius : {{radius}},
+    numbars : {{ numBars }}, // this was a typo but I'm afraid to change it now
+    price : {{ price }}
+  }
+</script>
+<body>
+  <h1 id="barNum"></h1>
+  <h2 id="name"></h2>
+  <div id="map"></div>
+  <p id="endmessage"></p>
+  <button id="next">Start Crawl</button>
+  <div id="reviews"></div>
+  
+⭐
+  <script src="{% static 'barcrawl/js/bars.js' %}"></script>
+  <script
+    type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXkrApyv2tJPktwkq_nVgVxs8S9O_Dfso&libraries=places&callback=initMap"
+    async
+    defer
+  ></script>
+</body>
