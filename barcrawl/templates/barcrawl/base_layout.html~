@@ -1,0 +1,17 @@
+{% load static from staticfiles %}
+<html>
+  <head>
+  </head>
+  <body>
+    <nav>
+      <ul>
+	<li>
+	  <form class="logout-link" action="/barcrawlapp/logout/" method="post">
+	    {% csrf_token %}
+	    <button type="submit">Logout</button>
+	  </form>
+	</li>
+      </ul>
+    </nav>
+  </body>
+</html>
