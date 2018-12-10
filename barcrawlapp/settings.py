@@ -25,7 +25,7 @@ SECRET_KEY = 'o%pwc&c_^rv-od0caijn2-lu9o3gl(cemam253a4$8+6nr(fcm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vm270', '172.19.50.155', '172.19.50.173']
+ALLOWED_HOSTS = ['vm270', '172.19.50.155', '172.19.50.173', '172.19.50.148']
 
 
 # Application definition
@@ -126,3 +126,4 @@ USE_TZ = True
 STATIC_URL = '/barcrawlapp/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+LOGIN_URL = '/barcrawlapp/login/' 

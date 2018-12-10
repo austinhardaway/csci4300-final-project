@@ -1,13 +1,18 @@
+{% extends 'barcrawl/base_layout.html' %}
+{% block content %}
 {% load static %}
 <head>
 <link rel="stylesheet" type="text/css" href="{% static 'barcrawl/css/index.css' %}"/>
 <link href="https://fonts.googleapis.com/css?family=Alegreya Sans SC" rel="stylesheet">
 </head>
 <body>
-<button id="headerButtonL">Schema</button>
+<!-- <button id="headerButtonL">Schema</button>
 <h1>BarCrawl App</h1>
-<button id="headerButtonR">Logout</button>
+<button id="headerButtonR">Logout</button> -->
 <center>
+  <h1>Bar Crawl Demo</h1>
+  <h2>Welcome, {{ user.get_username }}! Let's start your hop.</h2>
+  <a href="barcrawl/login.html">Login</a>
 <p>Based on your current location, we will customize a bar crawl for you. Choose your preferences below:</p>
 <form action="bar" method="POST"> {% csrf_token %}
   <label for="radius">Max distance from you (miles):</label>
@@ -32,3 +37,4 @@
 </form>
 </center>
 </body>
+{% endblock %}
