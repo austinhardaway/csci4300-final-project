@@ -1,11 +1,47 @@
-html{
+html {
+  background: black;
+  color: aliceblue;
+  font-family: 'Alegreya Sans SC';
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#map {
+  height: 500px;
+  width: 700px;
+}
+
+#postreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#postReview {
+  margin: 10px;
+}
+
+#revcontainer, #reviews {
+  width: 40%
+}
+
+#review{
+  width: 100%;
+}
+
+button{
   background: aliceblue;
+  width: 30%;
+  font-family: "Alegreya Sans SC";
+  color: black;
+  border: 5px solid aliceblue;
 }
 
-#map{
-  height:50%;
-}
-
-.hidden{
+.hidden {
   visibility: hidden;
 }

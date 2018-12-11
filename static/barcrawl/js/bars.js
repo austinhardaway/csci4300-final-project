@@ -132,7 +132,7 @@ function requestReviews(barId) {
   while (node.firstChild) {
       node.removeChild(node.firstChild);
   } 
-  fetch(`/barcrawlapp/review/${crawl[currentBar].place_id}`, {method:'GET'})
+  fetch(`/barcrawlapp/review/${barId}`, {method:'GET'})
   .then(res => {
     return res.text()
   }).then(text =>{
@@ -229,12 +229,16 @@ document.getElementById('next').addEventListener('click', e => {
             "X-CSRFToken": getCookie("csrftoken")
           }
         }).then(res => res.text())
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res);
+          document.getElementById('review').value = ''
+          requestReviews(crawl[currentBar-1].place_id)
+        })
         .catch(err => console.error(err))
       })
     }
     console.log(`curent bar -> ${currentBar}/${crawl.length-1}`)
-    requestReviews('string')
+    requestReviews(crawl[currentBar].place_id)
     currentBar++
   } else if (currentBar == crawl.length) {
     // this however is every bit as hacky as it seems

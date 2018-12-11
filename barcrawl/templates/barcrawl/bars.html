@@ -6,6 +6,10 @@
     type="text/css"
     href="{% static 'barcrawl/css/bars.css' %}"
   />
+  <link
+    href="https://fonts.googleapis.com/css?family=Alegreya Sans SC"
+    rel="stylesheet"
+  />
 </head>
 <script>
   //makes the post data available to bars.js
@@ -23,8 +27,7 @@
   <p id="endmessage"></p>
   <button id="next">Start Crawl</button>
   <div id="reviews"></div>
-  <div id="postreview"></div>
-
+  <div id="revcontainer"><div id="postreview"></div></div>
   ⭐
   <p id="uname" class="hidden">{{ user.get_username }}</p>
   <script src="{% static 'barcrawl/js/bars.js' %}"></script>
