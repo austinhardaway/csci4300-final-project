@@ -121,7 +121,71 @@ function resetCenter() {
   map.setCenter(bounds.getCenter()) //sets the center to the center of the new rectangle
   map.fitBounds(bounds) // fits the map zoom to the new bounds
 }
+/**
+ * Gets any reviews for the bar in the db
+ * fetch is alot like XMLRequest but a) not ancient and b) handles async via Promises instead of
+ * event listeners (because its not ancient (see part (a)))
+ * @param {String} barId
+ */
+function requestReviews(barId) {
+  let node = document.getElementById("reviews");
+  while (node.firstChild) {
+      node.removeChild(node.firstChild);
+  } 
+  fetch(`/barcrawlapp/review/${crawl[currentBar].place_id}`, {method:'GET'})
+  .then(res => {
+    return res.text()
+  }).then(text =>{
+    console.log(text);
+    document.getElementById('reviews').insertAdjacentHTML('beforeend', text)
+  })
+  .catch(err=>console.error(err))
+}
 
+/**
+ * Adds HTML elements required to post a review
+ */
+function addReviews(){
+  let label = document.createElement('h3')
+  label.innerHTML = 'Post a Review'
+  let ta = document.createElement('textarea')
+  ta.setAttribute('id', 'review')
+  ta.setAttribute('cols', '30')
+  ta.setAttribute('rows', '10')
+  ta.setAttribute('maxlength', '200')
+  let button = document.createElement('button')
+  button.setAttribute('id', 'postReview')
+  button.innerHTML = 'Post'
+
+  document.getElementById('postreview').appendChild(label)
+  document.getElementById('postreview').appendChild(ta)
+  document.getElementById('postreview').appendChild(button)
+}
+
+/**
+ * Gets the cookie called cname
+ * @param {String} cname 
+ */
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+/**
+ * This is where the magic happens. Handles the next bar button click to update the map and info
+ * about the current bar. Also increments the current bar so the next time it comes through
+ * it displays the right info.
+ */
 document.getElementById('next').addEventListener('click', e => {
   //sets Text elements
   if (currentBar < crawl.length) {
@@ -146,8 +210,36 @@ document.getElementById('next').addEventListener('click', e => {
     )
     setMarkers(map) //sets the new markers
     resetCenter() //sets the new map center
+    if(currentBar===0){
+      addReviews() //If the user is on the first bar add a review post box and post button
+      document.getElementById('postReview').addEventListener('click', e =>{
+        let review = {
+          review : document.getElementById('review').value,
+          user: document.getElementById('uname').innerHTML
+        }
+        console.log(review)
+        const barNum = currentBar -1
+        //Sends a post request to the review endpoint with the all the info to make the review db additon
+        fetch(`/barcrawlapp/review/${crawl[barNum].place_id}`, {
+          method: 'POST', 
+          body: JSON.stringify(review),
+          credentials: "same-origin",
+          headers:{
+            'Content-Type':'application/json',
+            "X-CSRFToken": getCookie("csrftoken")
+          }
+        }).then(res => res.text())
+        .then(res => console.log(res))
+        .catch(err => console.error(err))
+      })
+    }
+    console.log(`curent bar -> ${currentBar}/${crawl.length-1}`)
+    requestReviews('string')
     currentBar++
-  } else if (currentBar == crawl.length) { // this however is every bit as hacky as it seems
+  } else if (currentBar == crawl.length) {
+    // this however is every bit as hacky as it seems
+    document.getElementById('reviews').remove()
+    document.getElementById("postreview").remove()
     document.getElementById('endmessage').innerHTML =
       'Congrats on completing your crawl! Drink some water, take an advil, and get home safe! Ya animal.'
     document.getElementById('next').innerHTML = 'Back to Home'
@@ -156,3 +248,8 @@ document.getElementById('next').addEventListener('click', e => {
     window.location = '/barcrawlapp'
   }
 })
+
+
+
+
+

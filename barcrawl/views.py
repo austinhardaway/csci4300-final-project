@@ -5,6 +5,9 @@ from django.template import loader
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from barcrawl.models import Review
+import json
+import cgi
 
 # Create your views here.
 def signup_view(request):
@@ -56,3 +59,16 @@ def bars(request):
       'numBars': request.POST.get('numBars'),
       'price': request.POST.get('price')
     })
+
+def review(request, barid):
+  '''Endpoint for posting and getting reviews to the database. Called from /bars '''
+  if request.method == 'GET':
+    return render(request, 'barcrawl/review_fragment.html', {
+      'reviews' : Review.objects.filter(bar_id=barid)
+    })
+  if request.method == 'POST':
+    data = json.loads(request.body)
+    rev = Review(review = cgi.escape(data['review']), bar_id=barid, user=data['user'])
+    rev.save()
+    return HttpResponse("Success")
+  return HttpResponse('Bad request')

@@ -5,3 +5,7 @@ html{
 #map{
   height:50%;
 }
+
+.hidden{
+  visibility: hidden;
+}

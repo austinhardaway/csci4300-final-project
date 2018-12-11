@@ -7,6 +7,5 @@ class User(models.Model):
 
 class Review(models.Model):
   review = models.CharField(max_length=220)
-  bar_id = models.IntegerField()
+  bar_id = models.CharField(max_length=200)
   user = models.CharField(max_length=20)
-  rating = models.IntegerField()

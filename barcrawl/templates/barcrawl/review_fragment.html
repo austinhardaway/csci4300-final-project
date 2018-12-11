@@ -1,0 +1,14 @@
+<h3>Bar Reviews</h3>
+{% for review in reviews %}
+<hr>
+<div class="review">
+  {% autoescape on%}
+  <p>{{ review.review }}</p>
+  <cite>{{ review.user }}</cite>
+  {% endautoescape %}
+</div>
+{% endfor %}
+{% if reviews|length == 0 %}
+<hr>
+<p>No reviews yet. You should leave one!</p>
+{% endif %}
